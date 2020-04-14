@@ -30,7 +30,9 @@
   <!-- sensors -->
   <xacro:include filename="$(find cob_description)/urdf/sensors/realsense.urdf.xacro" />
   <xacro:include filename="$(find cob_description)/urdf/sensors/realsense_zr300.urdf.xacro" />
-  <xacro:include filename="$(find cob_description)/urdf/sensors/kinect.urdf.xacro" />
+  <xacro:include filename="$(find cob_description)/urdf/sensors/realsense_d435.urdf.xacro" />
+  <xacro:include filename="$(find cob_description)/urdf/sensors/_d435.urdf.xacro" />
+
   <xacro:include filename="$(find cob_description)/urdf/sensors/usb_cam.urdf.xacro" />
   <xacro:include filename="$(find cob_description)/urdf/sensors/sick_s300_laser.urdf.xacro"/>
 
@@ -83,8 +85,20 @@
   <xacro:sensorring name="sensorring" parent="head_3_link" active="${True}">
     <origin xyz="${sensorring_x} ${sensorring_y} ${sensorring_z}" rpy="${sensorring_roll} ${sensorring_pitch} ${sensorring_yaw}" />
   </xacro:sensorring>
-  <xacro:cob_kinect_v0 name="sensorring_cam3d" ros_topic="sensorring_cam3d" parent="sensorring_link" update_rate="30" data_skip="9">
+  
+   <!-- Mojin Robotics set up with kinect camera in sensorring part (not true for Cob4-7)-->
+  <!--xacro:cob_kinect_v0 name="sensorring_cam3d" ros_topic="sensorring_cam3d" parent="sensorring_link" update_rate="30" data_skip="9">
     <origin xyz="${sensorring_cam3d_x} ${sensorring_cam3d_y} ${sensorring_cam3d_z}" rpy="${sensorring_cam3d_roll} ${sensorring_cam3d_pitch} ${sensorring_cam3d_yaw}" />
-  </xacro:cob_kinect_v0>
+  </xacro:cob_kinect_v0-->
+  
+  <!-- ipa-mah set up with realsense d435 camera model but changeing gazebo cam from depth_camera to kinect_openni plugin -->
+   <!--xacro:realsense_d435 name="sensorring_cam3d" parent="sensorring_link">
+    <origin xyz="${sensorring_cam3d_x} ${sensorring_cam3d_y} ${sensorring_cam3d_z}" rpy="${sensorring_cam3d_roll} ${sensorring_cam3d_pitch} ${sensorring_cam3d_yaw}" />
+  </xacro:realsense_d435-->
+  
+  <!--ipa-mah set up with d435 camera plugin from Pal Robotics and d435 cam description from Intel  -->
+  <sensor_d435 name="sensorring_cam3d" parent="sensorring_link">
+    <origin xyz="${sensorring_cam3d_x} ${sensorring_cam3d_y} ${sensorring_cam3d_z}" rpy="${sensorring_cam3d_roll} ${sensorring_cam3d_pitch} ${sensorring_cam3d_yaw}" />
+  </sensor_d435>
 
 </robot>
