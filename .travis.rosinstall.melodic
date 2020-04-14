@@ -33,5 +33,5 @@
     version: realsense2_substitute
 - git:
     local-name: realsense_gazebo_plugin
-    uri: git@github.com:pal-robotics/realsense_gazebo_plugin.git
+    uri: https://github.com/pal-robotics/realsense_gazebo_plugin.git
     version: melodic-devel
