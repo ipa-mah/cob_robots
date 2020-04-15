@@ -31,7 +31,6 @@
   <xacro:include filename="$(find cob_description)/urdf/sensors/realsense.urdf.xacro" />
   <xacro:include filename="$(find cob_description)/urdf/sensors/realsense_zr300.urdf.xacro" />
   <xacro:include filename="$(find cob_description)/urdf/sensors/realsense_d435.urdf.xacro" />
-  <xacro:include filename="$(find cob_description)/urdf/sensors/_d435.urdf.xacro" />
 
   <xacro:include filename="$(find cob_description)/urdf/sensors/usb_cam.urdf.xacro" />
   <xacro:include filename="$(find cob_description)/urdf/sensors/sick_s300_laser.urdf.xacro"/>
@@ -92,13 +91,9 @@
   </xacro:cob_kinect_v0-->
   
   <!-- ipa-mah set up with realsense d435 camera model but changeing gazebo cam from depth_camera to kinect_openni plugin -->
-   <!--xacro:realsense_d435 name="sensorring_cam3d" parent="sensorring_link">
+   <xacro:realsense_d435 name="sensorring_cam3d" parent="sensorring_link">
     <origin xyz="${sensorring_cam3d_x} ${sensorring_cam3d_y} ${sensorring_cam3d_z}" rpy="${sensorring_cam3d_roll} ${sensorring_cam3d_pitch} ${sensorring_cam3d_yaw}" />
-  </xacro:realsense_d435-->
+  </xacro:realsense_d435>
   
-  <!--ipa-mah set up with d435 camera plugin from Pal Robotics and d435 cam description from Intel  -->
-  <sensor_d435 name="sensorring_cam3d" parent="sensorring_link">
-    <origin xyz="${sensorring_cam3d_x} ${sensorring_cam3d_y} ${sensorring_cam3d_z}" rpy="${sensorring_cam3d_roll} ${sensorring_cam3d_pitch} ${sensorring_cam3d_yaw}" />
-  </sensor_d435>
 
 </robot>

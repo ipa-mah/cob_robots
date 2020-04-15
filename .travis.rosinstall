@@ -31,7 +31,3 @@
     local-name: realsense2_substitute
     uri: https://github.com/ipa320/realsense.git
     version: realsense2_substitute
-- git:
-    local-name: realsense_gazebo_plugin
-    uri: https://github.com/pal-robotics/realsense_gazebo_plugin.git
-    version: kinetic-devel
