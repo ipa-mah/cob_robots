@@ -148,6 +148,11 @@
 			<arg name="sim" value="$(arg sim)"/>
 			<arg if="$(arg sim)" name="cartesian_control" value="true"/>
 		</include>
+        <include file="$(find cob_bringup)/components/sdhx_remote.launch">
+			<arg name="robot" value="$(arg robot)"/>
+			<arg name="component_name" value="gripper_right"/>
+			<arg name="sim" value="$(arg sim)"/>
+		</include>
 		<include file="$(find cob_bringup)/components/cam3d_d435_rgbd.launch">
 			<arg name="robot" value="$(arg robot)"/>
 			<arg name="name" value="torso_cam3d_left"/>
@@ -219,6 +224,11 @@
 				<arg name="ntp_server" value="$(arg b1)"/>
 			</include>
 		</group>
+        <include file="$(find cob_bringup)/components/sdhx_remote.launch">
+			<arg name="robot" value="$(arg robot)"/>
+			<arg name="component_name" value="gripper_left"/>
+			<arg name="sim" value="$(arg sim)"/>
+		</include>
 		<include file="$(find cob_bringup)/components/cam3d_d435_rgbd.launch">
 			<arg name="robot" value="$(arg robot)"/>
 			<arg name="name" value="torso_cam3d_right"/>
